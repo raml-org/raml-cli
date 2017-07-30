@@ -9,7 +9,7 @@ The command-line tool for interacting with RAML documents.
 ## Installation
 
 ```
-$ npm install -g api-console-cli
+$ npm install -g raml-cli
 ```
 
 ## Command Overview
