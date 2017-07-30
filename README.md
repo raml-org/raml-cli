@@ -1,47 +1,60 @@
+# RAML CLI Tool
+
+> A handy command-line tool for RAML enthusiasts.
+
+## Features
+
+- **validate** - Validates a root RAML file against the specification.
+- **compile**  - Compiles a root RAML file into a valid OpenAPI 2.0 document.
+
 ## Installation
 
-To install the package you need to do the following:
-
 ```
-npm install -g git+ssh://github.com/restful-api-modelling-lang/javascript-parser
+$ npm install -g raml-cli
 ```
 
-This is only required for use within NodeJS or if you want to install the command line utility.
+## Command Overview
 
-### Validating RAML Syntax
+### `raml validate <file>`
 
-The command line utility can be used for validating the syntax of a RAML
-file as follows:
+The command can be used for validating the syntax of a RAML file as follows:
 
 ```
-raml validate myAPI.raml
+raml validate examples/simple.raml
 ```
 
 if it succeds you see something like the following:
 
 ```
-Validating myAPI.raml
-OK
+Validating examples/simple.raml...
+Valid!
 ```
 
-otherwise it will fail with a message containing an explanation on the error
+otherwise it will fail with a message containing an explanation on the error.
 
-### Generate a JSON representation of the RAML file
+### `raml compile <file> [options]`
 
-The command line utility also provides a way to generate a JSON representation
-of the RAML file. This JSON representation has already all traits factored in
-and all the !includes already processed.
-
-You can invoke this sub-command as follows:
+Compiles a root RAML file into a valid OpenAPI 2.0 document. It can be used as follows:
 
 ```
-raml to-json myAPI.raml
+raml compile examples/simple.raml
 ```
 
-### Listing Resources
-
-You can list all the resources available in a RAML file by doing the following:
+if it succeds you see something like the following:
 
 ```
-raml resources myAPI.raml
+Compile examples/simple.raml...
+Successfully compiled OAS 2.0 document.
 ```
+
+otherwise it will fail with a message containing an explanation on the error.
+
+#### Command options
+
+**-o, --output [value]**
+
+Type: `String`
+
+Default: `openapi.yml`
+
+Compiled OpenAPI 2.0 document file path.
