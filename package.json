@@ -1,7 +1,12 @@
 {
   "name": "raml-cli",
+  "description": "A handy command-line tool for RAML developers.",
   "version": "0.0.2",
   "main": "dist/index.js",
+  "keywords": [
+    "raml",
+    "cli"
+  ],
   "devDependencies": {
     "@types/node": "^8.0.17",
     "tslint": "^5.5.0",
@@ -11,7 +16,9 @@
     "lint": "tslint \"src/**/*.ts\"",
     "build": "rm -rf dist/ && tsc"
   },
-  "bin": "dist/index.js",
+  "bin": {
+    "raml" : "dist/index.js"
+  },
   "dependencies": {
     "colorize": "^0.1.0",
     "oas-raml-converter": "^0.2.7",

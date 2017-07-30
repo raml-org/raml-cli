@@ -1,6 +1,6 @@
 # RAML CLI Tool
 
-The command-line tool for interacting with RAML documents.
+> A handy command-line tool for RAML enthusiasts.
 
 ## Features
 
@@ -15,12 +15,12 @@ $ npm install -g raml-cli
 
 ## Command Overview
 
-### `raml-cli validate <file>`
+### `raml validate <file>`
 
 The command can be used for validating the syntax of a RAML file as follows:
 
 ```
-raml-cli validate examples/simple.raml
+raml validate examples/simple.raml
 ```
 
 if it succeds you see something like the following:
@@ -32,12 +32,12 @@ Valid!
 
 otherwise it will fail with a message containing an explanation on the error.
 
-### `raml-cli compile <file> [options]`
+### `raml compile <file> [options]`
 
 Compiles a root RAML file into a valid OpenAPI 2.0 document. It can be used as follows:
 
 ```
-raml-cli compile examples/simple.raml
+raml compile examples/simple.raml
 ```
 
 if it succeds you see something like the following:
