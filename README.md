@@ -5,6 +5,7 @@ The command-line tool for interacting with RAML documents.
 ## Features
 
 - **validate** - Validates a root RAML file against the specification.
+- **compile**  - Compiles a root RAML file into a valid OpenAPI 2.0 document.
 
 ## Installation
 
@@ -30,3 +31,30 @@ Valid!
 ```
 
 otherwise it will fail with a message containing an explanation on the error.
+
+### `raml-cli compile <file> [options]`
+
+Compiles a root RAML file into a valid OpenAPI 2.0 document. It can be used as follows:
+
+```
+raml-cli compile examples/simple.raml
+```
+
+if it succeds you see something like the following:
+
+```
+Compile examples/simple.raml...
+Successfully compiled OAS 2.0 document.
+```
+
+otherwise it will fail with a message containing an explanation on the error.
+
+#### Command options
+
+**-o, --output [value]**
+
+Type: `String`
+
+Default: `openapi.yml`
+
+Compiled OpenAPI 2.0 document file path.

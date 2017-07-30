@@ -5,7 +5,7 @@ import fs = require('fs')
 const cconsole = require('colorize').console
 
 exports.command = 'validate <file>'
-exports.desc = 'Validates a root RAML file against the specification.'
+exports.desc = 'Validates a root RAML file against the RAML specification.'
 
 exports.handler = function(argv) {
   cconsole.log('Validating #blue[%s]...', argv.file)
