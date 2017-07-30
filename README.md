@@ -32,7 +32,7 @@ Valid!
 
 otherwise it will fail with a message containing an explanation on the error.
 
-### `raml-cli compile <file> [options]`
+### `raml-cli compile <file> [options]`
 
 Compiles a root RAML file into a valid OpenAPI 2.0 document. It can be used as follows:
 
