@@ -28,7 +28,7 @@ exports.handler = async function(argv) {
   const title = await inquirerPrompt({
     type: 'input',
     name: 'title',
-    message: 'What is the title of your API? (empty string is not allowed)',
+    message: 'What is the title of your API? (empty string is not allowed):',
     validate (title) {
       if(title === '') {
         return false
@@ -40,7 +40,7 @@ exports.handler = async function(argv) {
   const description = await inquirerPrompt({
     type: 'input',
     name: 'description',
-    message: 'How would you describe your API? (Enter to skip)'
+    message: 'How would you describe your API? (Enter to skip):'
   })
   const context = Object.assign({}, title, description);
   if(argv.template) {
