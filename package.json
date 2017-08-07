@@ -17,10 +17,12 @@
     "build": "rm -rf dist/ && tsc"
   },
   "bin": {
-    "raml" : "dist/index.js"
+    "raml": "dist/index.js"
   },
   "dependencies": {
     "colorize": "^0.1.0",
+    "handlebars": "^4.0.10",
+    "inquirer": "^3.2.1",
     "oas-raml-converter": "^0.2.7",
     "raml-1-parser": "^1.1.29",
     "yargs": "^8.0.2"
