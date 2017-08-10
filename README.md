@@ -27,7 +27,8 @@ Commands:
                             specification.
 
 Options:
-  --help  Show help                                                    [boolean]
+  --help, -h     Show help                                             [boolean]
+  --version, -v  Show version number                                   [boolean]
 
 For more information go to https://github.com/raml-org/raml-cli
 ```
