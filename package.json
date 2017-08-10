@@ -7,6 +7,10 @@
     "raml",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raml-org/raml-cli"
+  },
   "devDependencies": {
     "@types/node": "^8.0.17",
     "tslint": "^5.5.0",
