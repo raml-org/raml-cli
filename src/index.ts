@@ -6,4 +6,5 @@ const argv = require('yargs')
   .demand(1)
   .epilogue('For more information go to https://github.com/raml-org/raml-cli')
   .help()
+  .version()
   .argv
