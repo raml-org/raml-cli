@@ -9,11 +9,11 @@ exports.desc = 'Validates a root RAML file against the RAML specification.'
 
 exports.handler = function(argv) {
   cconsole.log('Validating #blue[%s]...', argv.file)
-  const file = path.resolve(process.cwd(), argv.file)
-  const api = raml_parser.loadApi(file, { rejectOnErrors: true, attributeDefaults: true })
+  const api = raml_parser.loadApi(argv.file, { rejectOnErrors: true, attributeDefaults: true })
   api.then(function (result) {
-    cconsole.log('#green[Valid!]');
+    cconsole.log('#green[Valid!]')
   }).catch(function(error) {
-    cconsole.error('#red[%s]', JSON.stringify(error, null, 2));
+    cconsole.error('#red[%s]', JSON.stringify(error, null, 2))
+    process.exit(1)
   })
 }
