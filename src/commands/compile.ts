@@ -1,5 +1,4 @@
 import converter = require('oas-raml-converter')
-import path = require('path')
 
 const cconsole = require('colorize').console
 
@@ -18,27 +17,31 @@ exports.builder = {
 exports.handler = function(argv) {
   cconsole.log('Compile #blue[%s]...', argv.file)
 
+  // compile a RAML document `argv.file` into an OAS document `argv.output`
+  compile(argv.file, argv.output)
+}
+
+function compile(inputFile: string, outputFile: string): void {
   var autoToOAS = new converter.Converter(converter.Formats.AUTO, converter.Formats.OAS)
+
   var options = {
     validate: true, // Parse both input and output to check that its a valid document 
     format: 'yaml', // Output format: json (default for OAS) or yaml (default for RAML) 
-  };
+  }
 
-  const file = path.resolve(process.cwd(), argv.file)
-  autoToOAS.convertFile(file, options).then(function(result) {
-    
-    const outFile = path.resolve(process.cwd(), argv.output)
-
+  autoToOAS.convertFile(inputFile, options).then(function(result) {
     require('fs')
-      .writeFile(outFile, result, function(err) {
+      .writeFile(outputFile, result, function(err) {
         if(err) {
-          return cconsole.error('#red[%s]', err);
+          cconsole.error('#red[%s]', err)
+          process.exit(1)
         }
 
-        cconsole.log("#green[Successfully compiled OAS 2.0 document.]");
-    });
+        cconsole.log("#green[Successfully compiled OAS 2.0 document.]")
+    })
   })
   .catch(function(err) {
-    cconsole.error('#red[%s]', err);
-  });
+    cconsole.error('#red[%s]', err)
+    process.exit(1)
+  })
 }

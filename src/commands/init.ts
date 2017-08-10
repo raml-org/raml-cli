@@ -25,7 +25,40 @@ exports.builder = {
 
 exports.handler = async function(argv) {
   console.log("init...")
-  const title = await inquirerPrompt({
+
+  
+
+  init(argv.template)
+}
+
+interface UserInput {
+  title: string,
+  description: string
+}
+
+function init(templateFile: string): void {
+  collectUserInput().then(input => {
+    if(templateFile) {
+      fs.readFile(templateFile, 'utf8', function(err, content) {
+        if(err) {
+          cconsole.error('#red[%s]', err)
+          process.exit(1)
+        }
+        
+        initRamlDocument(content, input)
+      })
+    } else {
+      initRamlDocument(defaultTemplate, input)
+    }
+  })
+  .catch(function(err) {
+    cconsole.error('#red[%s]', err)
+    process.exit(1)
+  })
+}
+
+async function collectUserInput(): Promise<UserInput> {
+  const titleInput = await inquirerPrompt({
     type: 'input',
     name: 'title',
     message: 'What is the title of your API? (empty string is not allowed):',
@@ -37,33 +70,30 @@ exports.handler = async function(argv) {
       return true
     } 
   })
-  const description = await inquirerPrompt({
+
+  const descInput = await inquirerPrompt({
     type: 'input',
     name: 'description',
     message: 'How would you describe your API? (Enter to skip):'
   })
-  const context = Object.assign({}, title, description);
-  if(argv.template) {
-    const file = path.resolve(process.cwd(), argv.template)
-    fs.readFile(file, 'utf8', function(err, content) {
-      if(err) {
-        throw err
-      }
-      initRamlDocument(content, context)
-    })
-  } else {
-    initRamlDocument(defaultTemplate, context)
+
+  return {
+    title: titleInput.title,
+    description: descInput.description
   }
 }
 
-function initRamlDocument(source, context) {
-  const template = Handlebars.compile(source);
+function initRamlDocument(source: string, context: UserInput): void {
+  console.log(context)
+
+  const template = Handlebars.compile(source)
   const raml = template(context)
   fs.writeFile("api.raml", raml, function(err) {
     if(err) {
-      throw err
+      cconsole.error('#red[%s]', err)
+      process.exit(1)
     }
 
-    console.log("Initialization successful!");
-}); 
+    cconsole.log('#green[Initialization successful!]')
+  }) 
 }
