@@ -3,7 +3,7 @@ import converter = require('oas-raml-converter')
 const cconsole = require('colorize').console
 
 exports.command = 'compile <file> [options]'
-exports.desc = 'Compiles a root RAML file into a valid OpenAPI 2.0 document.'
+exports.desc = 'Compiles a root RAML document into a valid OpenAPI 2.0 document.'
 exports.builder = {
   'output': {
     description: 'Compiled OpenAPI 2.0 document file path.',

@@ -1,7 +1,7 @@
 {
   "name": "raml-cli",
   "description": "A handy command-line tool for RAML developers.",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "keywords": [
     "raml",
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/node": "^8.0.17",
+    "@types/yargs": "^8.0.2",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2"
   },
@@ -25,9 +26,13 @@
   },
   "dependencies": {
     "colorize": "^0.1.0",
+    "finalhandler": "^1.0.4",
     "handlebars": "^4.0.10",
+    "http": "0.0.0",
     "inquirer": "^3.2.1",
+    "morgan": "^1.8.2",
     "oas-raml-converter": "^0.2.7",
+    "raml-mock-service": "^1.0.0",
     "raml-1-parser": "^1.1.29",
     "yargs": "^8.0.2"
   }

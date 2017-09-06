@@ -1,0 +1,12 @@
+#%RAML 1.0
+title: issue
+version: v1
+
+/foo:
+  get:
+    responses:
+      200:
+        headers:
+         foo:
+           default: 'bar'
+           type: string

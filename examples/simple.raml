@@ -1,2 +1,18 @@
 #%RAML 1.0
 title: Simple Example
+
+types:
+  Customer:
+    properties:
+      name:
+
+/customers:
+  get:
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: Customer[]
+            example:
+              - name: Christian
+              - name: Antonio

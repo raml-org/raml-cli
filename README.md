@@ -4,9 +4,10 @@
 
 ## Features
 
-- **validate** - Validates a root RAML file against the specification.
-- **compile**  - Compiles a root RAML file into a valid OpenAPI 2.0 document.
+- **validate** - Validates a root RAML document against the specification.
+- **compile**  - Compiles a root RAML document into a valid OpenAPI 2.0 document.
 - **init**     - Initialize a basic RAML document based on user input.
+- **mock**     - Mocks a root RAML document.
 
 ## Installation
 
@@ -20,10 +21,11 @@ $ npm install -g raml-cli
 Usage: raml <command>
 
 Commands:
-  compile <file> [options]  Compiles a root RAML file into a valid OpenAPI 2.0
+  compile <file> [options]  Compiles a root RAML document into a valid OpenAPI 2.0
                             document.
   init [options]            Initialize a RAML document.
-  validate <file>           Validates a root RAML file against the RAML
+  mock <file> [options]     Mocks a root RAML document .
+  validate <file>           Validates a root RAML document against the RAML
                             specification.
 
 Options:
@@ -38,7 +40,7 @@ For more information go to https://github.com/raml-org/raml-cli
 
 ### `raml validate <file>`
 
-The command can be used for validating the syntax of a RAML file as follows:
+The command can be used for validating the syntax of a RAML document as follows:
 
 ```
 raml validate examples/simple.raml
@@ -55,7 +57,7 @@ otherwise it will fail with a message containing an explanation on the error.
 
 ### `raml compile <file> [options]`
 
-Compiles a root RAML file into a valid OpenAPI 2.0 document. It can be used as follows:
+Compiles a root RAML document into a valid OpenAPI 2.0 document. It can be used as follows:
 
 ```
 raml compile examples/simple.raml
@@ -111,3 +113,33 @@ This command is using [Handlebars](http://handlebarsjs.com/) under the hood to i
 Type: `String`
 
 File path of a custom Handlebars template.
+
+### `raml mock <file> [options]`
+
+Mocks a root RAML document. It can be used as follows:
+
+```
+raml mock examples/simple.raml
+```
+
+if it succeds you see something like the following:
+
+```
+Mock service running at http://localhost:8080
+```
+
+otherwise it will fail with a message containing an explanation on the error.
+
+#### Command options
+
+**-p, --port [value]**
+
+Type: `String`
+
+Port number to bind the proxy. Default: `8080`.
+
+**--cors [value]**
+
+Type: `boolean`
+
+Enable CORS with the API. Default: `false`.
