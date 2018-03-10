@@ -1,5 +1,7 @@
 # RAML CLI Tool
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/raml-org/raml-cli.svg)](https://greenkeeper.io/)
+
 > A handy command-line tool for RAML enthusiasts.
 
 ## Features
