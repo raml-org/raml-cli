@@ -12,8 +12,8 @@
     "url": "https://github.com/raml-org/raml-cli"
   },
   "devDependencies": {
-    "@types/node": "^8.0.17",
-    "@types/yargs": "^8.0.2",
+    "@types/node": "^9.4.7",
+    "@types/yargs": "^11.0.0",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2"
   },
@@ -29,11 +29,11 @@
     "finalhandler": "^1.0.4",
     "handlebars": "^4.0.10",
     "http": "0.0.0",
-    "inquirer": "^3.2.1",
+    "inquirer": "^5.1.0",
     "morgan": "^1.8.2",
-    "oas-raml-converter": "^0.2.7",
+    "oas-raml-converter": "^1.1.28",
     "raml-mock-service": "^1.0.0",
     "raml-1-parser": "^1.1.29",
-    "yargs": "^8.0.2"
+    "yargs": "^11.0.0"
   }
 }
